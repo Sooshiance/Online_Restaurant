@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # TODO: Third pary apps
 
     # TODO: Local apps
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# TODO: Change the default model for AUTHflow
+AUTH_USER_MODEL = "user.User"
 
 
 STATIC_URL = 'static/'

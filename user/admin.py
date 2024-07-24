@@ -18,6 +18,6 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('pk', 'phone')
 
 
-admin.site.register(User, UserAdmin)
+admin.site.register(User, Admin)
 
 admin.site.register(Profile, ProfileAdmin)
