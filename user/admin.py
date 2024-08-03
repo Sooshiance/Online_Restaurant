@@ -5,7 +5,7 @@ from user.models import User, Profile
 
 
 class Admin(UserAdmin):
-    list_display = ('phone', 'email', 'fullName')
+    list_display = ('phone', 'email', 'fullName', 'is_active')
     filter_horizontal = ()
     list_filter = ('is_active', 'role')
     fieldsets = ()
@@ -15,7 +15,8 @@ class Admin(UserAdmin):
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'phone')
+    list_display = ('pk', 'phone', 'fullName')
+    list_display_links = ('phone', 'fullName')
 
 
 admin.site.register(User, Admin)

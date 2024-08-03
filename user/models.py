@@ -66,7 +66,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # TODO: Fields
     phone        = models.CharField(max_length=11, unique=True, validators=[numbers])
-    email        = models.EmailField(max_length=244, unique=True, validators=[alphanumeric])
+    email        = models.EmailField(max_length=244, unique=True)
     first_name   = models.CharField(max_length=30, null=True, blank=True)
     last_name    = models.CharField(max_length=50, null=True, blank=True)
 
@@ -81,7 +81,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = AllUser()
 
     USERNAME_FIELD  = 'phone'
-    REQUIRED_FIELDS = ['email', 'username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
     
     @property
     def fullName(self):

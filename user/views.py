@@ -21,6 +21,7 @@ def registerUser(request):
             return redirect('home')
         else:
             messages.error(request, "")
+            print(form.errors)
             return redirect("user:register")
     else:
         form = Register()
