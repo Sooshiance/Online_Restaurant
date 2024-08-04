@@ -71,7 +71,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name    = models.CharField(max_length=50, null=True, blank=True)
 
     # TODO: Roles
-    role         = models.CharField(max_length=1, choices=Role.ROLE_CHOICE, default=2, blank=True, null=True)
+    role         = models.PositiveSmallIntegerField(choices=Role.choices(), blank=True, null=True)
 
     # TODO: Status
     is_active    = models.BooleanField(default=False, null=False)
@@ -99,6 +99,13 @@ class User(AbstractBaseUser, PermissionsMixin):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
+    
+    def get_role(self):
+        if self.role == 1:
+            user_role = 'Vendor'
+        elif self.role == 2:
+            user_role = 'Customer'
+        return user_role
     
     class Meta:
         ordering = ['pk']

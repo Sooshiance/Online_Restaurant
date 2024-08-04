@@ -5,7 +5,7 @@ from user.models import User, Profile
 
 
 class Admin(UserAdmin):
-    list_display = ('phone', 'email', 'fullName', 'is_active')
+    list_display = ('phone', 'email', 'fullName', 'is_active', 'role')
     filter_horizontal = ()
     list_filter = ('is_active', 'role')
     fieldsets = ()

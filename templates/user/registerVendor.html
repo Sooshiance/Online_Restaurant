@@ -1,0 +1,50 @@
+{% extends 'root.html' %} {% block doc %}
+<section class="vh-80">
+  <div class="container py-5 h-80">
+    <div class="row d-flex align-items-center justify-content-center h-80">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="d-grid">
+          <div class="container">
+            <div class="row">
+              <div class="col">Register your account</div>
+            </div>
+          </div>
+        </div>
+        <form
+          method="post"
+          action="{% url 'user:registerVendor' %}"
+          enctype="multipart/form-data"
+        >
+          {% for field in form %}
+          <div data-mdb-input-init class="form-outline mb-4">
+            {{ field }}
+            <label class="form-label" for="form1Example13"
+              >{{ field.label }}</label
+            >
+          </div>
+          {% endfor %} {% for v_field in v_form %}
+          <div data-mdb-input-init class="form-outline mb-4">
+            {{ v_field }}
+            <label class="form-label" for="form1Example13"
+              >{{ v_field.label }}</label
+            >
+          </div>
+          {% endfor %} {% csrf_token %}
+
+          <!-- Submit button -->
+          <div class="d-grid">
+            <button
+              type="submit"
+              data-mdb-button-init
+              data-mdb-ripple-init
+              class="btn btn-primary btn-primary"
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock doc %}

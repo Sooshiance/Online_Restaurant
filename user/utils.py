@@ -15,3 +15,15 @@ def sendToken(request, phone):
     request.session["otp_valid_date"] = str(valid_date)
     
     print(f"The OTP is : {otp}")
+
+
+def detectUser(user):
+    if user.role == 1:
+        redirectUrl = "vendorDashboard"
+        return redirectUrl
+    elif user.role == 2:
+        redirectUrl = "custDashboard"
+        return redirectUrl
+    elif user.superuser == True:
+        redirectUrl = "/admin"
+        return redirectUrl

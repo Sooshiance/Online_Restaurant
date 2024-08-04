@@ -1,0 +1,16 @@
+{% extends 'root.html' %}
+
+{% block title %}
+    {{user.last_name}}
+{% endblock title %}
+
+{% block doc  %}
+    {{user.las_name}}
+    <h1>
+        {{user.pk}}
+    </h1>
+    <h1>
+        {{user.get_role}}
+    </h1>
+{% endblock doc  %}
+    
