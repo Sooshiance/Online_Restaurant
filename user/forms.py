@@ -36,3 +36,7 @@ class Register(forms.ModelForm):
 class LoginForm(forms.Form):
     phone = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control my-5', 'placeholder':'09123456789'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control my-5', 'placeholder':'••••••••••••'}))
+
+
+class OTPForm(forms.Form):
+    otp = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control my-5',}), max_length=6)

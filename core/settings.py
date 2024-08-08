@@ -26,7 +26,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG")
+DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -149,5 +149,15 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # STATIC_ROOT = (os.path.join(BASE_DIR, 'ui'),)
 
 
+# Images
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+# TODO: Email Configurations
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USER_TLS = True
+EMAIL_USER_SSL = False
